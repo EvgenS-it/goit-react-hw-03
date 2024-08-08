@@ -17,7 +17,7 @@ const ContactList = ({ filteredContacts }) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  filteredContacts: PropTypes.array.isRequired,
 };
 
 export default ContactList;
