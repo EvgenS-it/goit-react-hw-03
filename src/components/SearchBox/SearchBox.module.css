@@ -1,0 +1,29 @@
+.searchContainer {
+  max-width: 360px;
+}
+
+.searchTitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 105%;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.searchInput {
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 10px;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.searchInput:hover {
+  border: 2px solid rgb(8, 127, 246);
+  cursor: pointer;
+}
+
+.searchInput:focus {
+  border-color: rgb(8, 127, 246);
+}

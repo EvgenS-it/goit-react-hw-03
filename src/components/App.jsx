@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import './App.css';
-// import ContactForm from './ContactForm/ContactForm';
+import ContactForm from './ContactForm/ContactForm';
 import SearchBox from './SearchBox/SearchBox';
 import ContactList from './ContactList/ContactList';
 import contacts from '../contacts.json';
 
 function App() {
-  // control input
+  // control component: input from searchBox
   const [filterValue, setfilterValue] = useState('');
   const handleFilter = event => {
     const value = event.target.value;
@@ -21,7 +21,7 @@ function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      {/* <ContactForm /> */}
+      <ContactForm />
       <SearchBox filterValue={filterValue} handleFilter={handleFilter} />
       <ContactList filteredContacts={filteredContacts} />
     </div>
