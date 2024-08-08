@@ -4,18 +4,16 @@ import { FaUser } from 'react-icons/fa6';
 import { FaPhone } from 'react-icons/fa6';
 
 const FriendListItem = ({ name, number }) => {
-  const { infoContainer, text, btn } = css;
+  const { infoContainer, icon, text, btn } = css;
   return (
     <>
       <div className={infoContainer}>
-        {/* <img className={icon} src={avatar} alt="Avatar" width="88" /> */}
         <p className={text}>
-          <FaUser />
+          <FaUser className={icon} />
           {name}
         </p>
-        {/* <img className={icon} src={avatar} alt="Avatar" width="88" /> */}
         <p className={text}>
-          <FaPhone />
+          <FaPhone className={icon} />
           {number}
         </p>
       </div>
