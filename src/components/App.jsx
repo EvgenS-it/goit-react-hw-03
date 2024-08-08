@@ -1,19 +1,29 @@
-// import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 // import ContactForm from './ContactForm/ContactForm';
-// import SearchBox from './SearchBox/SearchBox';
+import SearchBox from './SearchBox/SearchBox';
 import ContactList from './ContactList/ContactList';
 import contacts from '../contacts.json';
 
 function App() {
-  // const [count, setCount] = useState(0);
+  // control input
+  const [filterValue, setfilterValue] = useState('');
+  const handleFilter = event => {
+    const value = event.target.value;
+    setfilterValue(value);
+  };
+
+  // contacts filtration
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filterValue.toLowerCase())
+  );
 
   return (
     <div>
       <h1>Phonebook</h1>
       {/* <ContactForm /> */}
-      {/* <SearchBox /> */}
-      <ContactList contacts={contacts} />
+      <SearchBox filterValue={filterValue} handleFilter={handleFilter} />
+      <ContactList filteredContacts={filteredContacts} />
     </div>
   );
 }
