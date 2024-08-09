@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FaUser } from 'react-icons/fa6';
 import { FaPhone } from 'react-icons/fa6';
 
-const FriendListItem = ({ name, number }) => {
+const Connact = ({ name, number, onDeleteContact, id }) => {
   const { infoContainer, icon, text, btn } = css;
   return (
     <>
@@ -17,16 +17,18 @@ const FriendListItem = ({ name, number }) => {
           {number}
         </p>
       </div>
-      <button type="button" className={btn}>
+      <button type="button" className={btn} onClick={() => onDeleteContact(id)}>
         Delete
       </button>
     </>
   );
 };
 
-FriendListItem.propTypes = {
+Connact.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onDeleteContact: PropTypes.func,
 };
 
-export default FriendListItem;
+export default Connact;

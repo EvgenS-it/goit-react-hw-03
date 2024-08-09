@@ -7,6 +7,26 @@ import contactsFromServer from '../contacts.json';
 import { nanoid } from 'nanoid';
 
 function App() {
+  const [contacts, setContacts] = useState(contactsFromServer);
+
+  // Add new contact logic
+  const onAddContact = newContact => {
+    const finalContact = {
+      ...newContact,
+      id: nanoid(),
+    };
+
+    setContacts(prevContacts => [finalContact, ...prevContacts]);
+    console.log(finalContact);
+  };
+
+  // Delete contact logic
+  const onDeleteContact = contactId => {
+    setContacts(prevContacts =>
+      prevContacts.filter(contact => contact.id !== contactId)
+    );
+  };
+
   // control component: input from searchBox
   // const [filterValue, setfilterValue] = useState('');
   // const handleFilter = event => {
@@ -14,27 +34,17 @@ function App() {
   //   setfilterValue(value);
   // };
 
-  // contacts filtration
+  // contacts filtration logic
   // const filteredContacts = contacts.filter(contact =>
   //   contact.name.toLowerCase().includes(filterValue.toLowerCase())
   // );
-
-  const [contacts, setContacts] = useState(contactsFromServer);
-  const onAddContact = newContact => {
-    const finalContact = {
-      ...newContact,
-      id: nanoid(),
-    };
-
-    setContacts([finalContact, ...contacts]);
-  };
 
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm onAddContact={onAddContact} />
       {/* <SearchBox filterValue={filterValue} handleFilter={handleFilter} /> */}
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} onDeleteContact={onDeleteContact} />
     </div>
   );
 }
