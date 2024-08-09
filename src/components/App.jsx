@@ -17,7 +17,6 @@ function App() {
     };
 
     setContacts(prevContacts => [finalContact, ...prevContacts]);
-    console.log(finalContact);
   };
 
   // Delete contact logic

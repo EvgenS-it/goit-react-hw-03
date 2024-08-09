@@ -1,5 +1,5 @@
 import css from './ContactForm.module.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const ContactForm = ({ onAddContact }) => {
   const { form, label, title, input, btn } = css;
@@ -35,9 +35,8 @@ const ContactForm = ({ onAddContact }) => {
   );
 };
 
-// ContactForm.propTypes = {
-//   filterValue: PropTypes.string.isRequired,
-//   handleFilter: PropTypes.func.isRequired,
-// };
+ContactForm.propTypes = {
+  onAddContact: PropTypes.func.isRequired,
+};
 
 export default ContactForm;
