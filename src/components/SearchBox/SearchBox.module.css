@@ -15,15 +15,12 @@
   margin-bottom: 25px;
   padding: 10px;
   outline: none;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
 }
 
-.searchInput:hover {
-  border: 2px solid rgb(8, 127, 246);
-  cursor: pointer;
-}
-
+.searchInput:hover,
 .searchInput:focus {
-  border-color: rgb(8, 127, 246);
+  border: 1px solid rgb(8, 127, 246);
+  cursor: pointer;
 }

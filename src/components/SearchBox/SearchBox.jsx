@@ -8,7 +8,7 @@ const SearchBox = ({ filterValue, handleFilter }) => {
       <h2 className={searchTitle}>Find contacts by name</h2>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Search..."
         className={searchInput}
         value={filterValue}
         onChange={handleFilter}
