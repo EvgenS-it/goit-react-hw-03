@@ -47,7 +47,6 @@ const ContactForm = ({ onAddContact }) => {
 
     onAddContact(contactObject);
 
-    console.log(values);
     actions.resetForm();
   };
 
@@ -57,9 +56,7 @@ const ContactForm = ({ onAddContact }) => {
       onSubmit={handleSubmit}
       validationSchema={ContactValidationSchema}
     >
-      {({ values, errors }) => {
-        console.log(values, errors);
-
+      {() => {
         return (
           <Form className={form}>
             <label className={label}>
