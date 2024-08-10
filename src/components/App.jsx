@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import ContactForm from './ContactForm/ContactForm';
 import SearchBox from './SearchBox/SearchBox';
@@ -7,7 +7,14 @@ import contactsFromServer from '../contacts.json';
 import { nanoid } from 'nanoid';
 
 function App() {
-  const [contacts, setContacts] = useState(contactsFromServer);
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = JSON.parse(localStorage.getItem('savedContacts'));
+    return savedContacts || contactsFromServer;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('savedContacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   // Add new contact logic
   const onAddContact = newContact => {

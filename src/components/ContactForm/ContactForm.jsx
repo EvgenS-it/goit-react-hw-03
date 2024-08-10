@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
 // for Yup
-const phoneRegExp = /^[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
+const phoneRegExp = /^[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
 
 const ContactValidationSchema = Yup.object().shape({
   contactName: Yup.string()
@@ -12,7 +12,7 @@ const ContactValidationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   contactNumber: Yup.string()
-    .matches(phoneRegExp, "Valid phone number is 'xxx-xxx-xx-xx'")
+    .matches(phoneRegExp, "Valid phone number is 'xxx-xx-xx'")
     .required('Required'),
 });
 
